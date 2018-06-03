@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand text-uppercase">Spoonflower</a>
+
+  <%= form_tag({controller: "patterns", action: "index"}, method: "get", class: "form-inline") do %>
+    <%= text_field_tag :q, "", class: 'form-control mr-sm-2' %>
+
+    <div class="dropdown" style="margin-right: 10px">
+      <%= select_tag :substrate, options_for_select(
+                                      [["any", ''], 
+                                      "fabric", 
+                                      "wallpaper", 
+                                      "gift_wrap"], 
+                                      prompt: :true, 
+                                      selected: params[:substrate]),
+                                      class: "form-control btn-secondary" %>
+    </div>
+    <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+  <% end %>
+</nav>
